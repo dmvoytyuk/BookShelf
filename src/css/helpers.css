@@ -24,9 +24,9 @@
   scale: 1.01;
 }
 
-/* .book-category-item:hover > .img-cover > .book-category-image {
+.book-category-item:hover > .img-cover > .book-category-image {
   scale: 1.001;
   transition: 0.2s;
   box-shadow: 0px 0px 6px 6px rgba(0, 0, 0, 0.46);
   border-radius: 8px;
-} */
+}
