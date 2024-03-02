@@ -150,8 +150,8 @@ body.dark-theme .cart-item {
 }
 
 .cart-item-del-button-icon {
-  /* height: 14px;
-  width: 14px; */
+  height: 14px;
+  width: 14px;
   fill: #fff;
 }
 
