@@ -10,7 +10,7 @@ const cartEmptyMsg = document.querySelector('.cart-empty-container');
 const paginationList = document.querySelector('.pagination-list');
 const buttonsContainer = document.querySelector('.cart-buttons-container');
 
-renderTitle('.shoppinglist-title', 'Shopping List');
+renderTitle('.shoppinglist-title', 'Favorite Books');
 function renderShoppingList(books) {
   shoppingList.innerHTML = '';
   const hmtlBookList = books
@@ -32,7 +32,7 @@ function renderShoppingList(books) {
           <button data-id="${book._id}" class="cart-item-del-button">
             <svg class="cart-item-del-button-icon" width="12" height="12">
 
-              <use href="${sprite}#icon-delete-shoppinglist-tab" />
+              <use href="${sprite}#icon-delete-shoppinglist" />
             </svg>
           </button>
         </div>
