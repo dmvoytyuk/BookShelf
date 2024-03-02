@@ -13,7 +13,7 @@ import{r as B,l as d,u as m,a as L,b as y}from"./assets/api-d34a4473.js";import"
             <p class="cart-item-category">${e.list_name}</p>
           </div>
           <button data-id="${e._id}" class="cart-item-del-button">
-            <svg class="cart-item-del-button-icon" width="12" height="12">
+            <svg class="cart-item-del-button-icon" width="45" height="45">
               <use href="${$}#icon-delete-shoppinglist"></use>
             </svg>
           </button>
