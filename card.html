@@ -1,31 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/BookShelf/assets/favicon-cde52974.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Book Store</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Favorite Books</title>
     
     
     
-  <script type="module" crossorigin src="/BookShelf/commonHelpers.js"></script>
-  <link rel="modulepreload" crossorigin href="/BookShelf/assets/vendor-8dea2054.js">
-  <link rel="modulepreload" crossorigin href="/BookShelf/assets/api-d34a4473.js">
-  <link rel="stylesheet" href="/BookShelf/assets/api-a833c3d5.css">
-  <link rel="stylesheet" href="/BookShelf/assets/vendor-e5212ee8.css">
-</head>
+    <script type="module" crossorigin src="/BookShelf/commonHelpers.js"></script>
+    <link rel="modulepreload" crossorigin href="/BookShelf/assets/vendor-8dea2054.js">
+    <link rel="modulepreload" crossorigin href="/BookShelf/assets/api-d34a4473.js">
+    <link rel="stylesheet" href="/BookShelf/assets/api-a833c3d5.css">
+    <link rel="stylesheet" href="/BookShelf/assets/vendor-e5212ee8.css">
+  </head>
 
-<body>
+  <body>
     <header class="header">
   <div class="header-container">
     <nav class="header-navigation">
       <a class="header-logo" aria-label="header=logo" href="./index.html">
         <svg class="logo-icon" width="24" height="24">
-          <use href="/BookShelf/assets/symbol-defs-9ef8a4c2.svg#icon-logo-mob"></use>
+          <use href="/BookShelf/assets/symbol-defs-9f349f41.svg#icon-logo-mob"></use>
         </svg>
         <svg class="logo-text-icon" width="77" height="13">
-          <use href="/BookShelf/assets/symbol-defs-9ef8a4c2.svg#icon-logotext"></use>
+          <use href="/BookShelf/assets/symbol-defs-9f349f41.svg#icon-logotext"></use>
         </svg>
       </a>
       <ul class="header-menu">
@@ -34,11 +33,11 @@
         </li>
         <li class="header-item">
           <a class="header-menu-shopping" href="./card.html">
-            Shopping list
+            Favorites Books
 
             <svg class="basket-icon" width="15" height="15">
               <use
-                href="/BookShelf/assets/symbol-defs-9ef8a4c2.svg#icon-shopping-icon-header-desk"
+                href="/BookShelf/assets/symbol-defs-9f349f41.svg#icon-shopping-icon-header-desk"
               ></use>
             </svg>
             <span class="header-book-counter"></span>
@@ -55,12 +54,12 @@
 
       <button type="button" class="menu-open-btn">
         <svg class="menu-open-icon" width="28" height="28">
-          <use href="/BookShelf/assets/symbol-defs-9ef8a4c2.svg#icon-burger-menu"></use>
+          <use href="/BookShelf/assets/symbol-defs-9f349f41.svg#icon-burger-menu"></use>
         </svg>
       </button>
       <button type="button" class="menu-close-btn hidden">
         <svg class="menu-close-icon" width="28" height="28">
-          <use href="/BookShelf/assets/symbol-defs-9ef8a4c2.svg#icon-menu-close"></use>
+          <use href="/BookShelf/assets/symbol-defs-9f349f41.svg#icon-menu-close"></use>
         </svg>
       </button>
     </div>
@@ -74,10 +73,10 @@
         </li>
         <li class="mob-item">
           <a class="mob-menu-calor" href="./card.html">
-            Shopping list
+            Favorites Books
             <svg class="mob-basket-icon" width="20" height="20">
               <use
-                href="/BookShelf/assets/symbol-defs-9ef8a4c2.svg#icon-shopping-icon-header-desk"
+                href="/BookShelf/assets/symbol-defs-9f349f41.svg#icon-shopping-icon-header-desk"
               ></use>
             </svg>
             <span class="header-book-counter"></span>
@@ -89,10 +88,9 @@
 </header>
 
     <main class="main">
-
-        <div class="container">
-            <aside class="card-support" style="width: 100; height: 100%;">
-                <div class="slider-container">
+      <div class="container">
+        <aside class="card-support" style="width: 100; height: 100%">
+          <div class="slider-container">
   <div class="slider-suport-title">
     <p class="slider-p">Support Ukraine</p>
     <img
@@ -211,7 +209,7 @@
     <svg class="slider-arrow-icon">
       <use
         class="slider-button-arrow"
-        href="/BookShelf/assets/symbol-defs-9ef8a4c2.svg#icon-Vector-down1-1"
+        href="/BookShelf/assets/symbol-defs-9f349f41.svg#icon-Vector-down1-1"
       ></use>
     </svg>
   </button>
@@ -219,21 +217,19 @@
     <svg class="slider-arrow-icon">
       <use
         class="slider-button-arrow"
-        href="/BookShelf/assets/symbol-defs-9ef8a4c2.svg#icon-Vector-up1-1"
+        href="/BookShelf/assets/symbol-defs-9f349f41.svg#icon-Vector-up1-1"
       ></use>
     </svg>
   </button>
 </div>
 
-            </aside>
-            <section style="width: 100%;">
-                <div class="cart">
+        </aside>
+        <section style="width: 100%">
+          <div class="cart">
   <div class="shoppinglist-title"></div>
   <div class="cart-empty-container is-hidden">
     <div class="cart-empty">
-      <p class="cart-empty-msg">
-        This page is empty, add some books and proceed to order.
-      </p>
+      <p class="cart-empty-msg">No favorite books, add some.</p>
       <picture class="cart-empty-img">
         <source
           srcset="/BookShelf/assets/shoppinglist-empty-desk-f620737d.png 1x, /BookShelf/assets/shoppinglist-empty-desk-2x-b7e4a452.png 2x"
@@ -267,11 +263,9 @@
   </div>
 </div>
 
-            </section>
-        </div>
-
+        </section>
+      </div>
     </main>
     
-</body>
-
+  </body>
 </html>

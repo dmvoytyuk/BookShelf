@@ -1,31 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/BookShelf/assets/favicon-cde52974.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>BooksShelf</title>
+    
+    
+    
+    <script type="module" crossorigin src="/BookShelf/commonHelpers2.js"></script>
+    <link rel="modulepreload" crossorigin href="/BookShelf/assets/vendor-8dea2054.js">
+    <link rel="modulepreload" crossorigin href="/BookShelf/assets/api-d34a4473.js">
+    <link rel="stylesheet" href="/BookShelf/assets/vendor-e5212ee8.css">
+    <link rel="stylesheet" href="/BookShelf/assets/api-a833c3d5.css">
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <link rel="icon" type="image/svg+xml" href="/BookShelf/assets/favicon-cde52974.svg" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Book Store</title>
-  
-  
-  
-  <script type="module" crossorigin src="/BookShelf/commonHelpers2.js"></script>
-  <link rel="modulepreload" crossorigin href="/BookShelf/assets/vendor-8dea2054.js">
-  <link rel="modulepreload" crossorigin href="/BookShelf/assets/api-d34a4473.js">
-  <link rel="stylesheet" href="/BookShelf/assets/vendor-e5212ee8.css">
-  <link rel="stylesheet" href="/BookShelf/assets/api-a833c3d5.css">
-</head>
-
-<body>
-  <header class="header">
+  <body>
+    <header class="header">
   <div class="header-container">
     <nav class="header-navigation">
       <a class="header-logo" aria-label="header=logo" href="./index.html">
         <svg class="logo-icon" width="24" height="24">
-          <use href="/BookShelf/assets/symbol-defs-9ef8a4c2.svg#icon-logo-mob"></use>
+          <use href="/BookShelf/assets/symbol-defs-9f349f41.svg#icon-logo-mob"></use>
         </svg>
         <svg class="logo-text-icon" width="77" height="13">
-          <use href="/BookShelf/assets/symbol-defs-9ef8a4c2.svg#icon-logotext"></use>
+          <use href="/BookShelf/assets/symbol-defs-9f349f41.svg#icon-logotext"></use>
         </svg>
       </a>
       <ul class="header-menu">
@@ -34,11 +33,11 @@
         </li>
         <li class="header-item">
           <a class="header-menu-shopping" href="./card.html">
-            Shopping list
+            Favorites Books
 
             <svg class="basket-icon" width="15" height="15">
               <use
-                href="/BookShelf/assets/symbol-defs-9ef8a4c2.svg#icon-shopping-icon-header-desk"
+                href="/BookShelf/assets/symbol-defs-9f349f41.svg#icon-shopping-icon-header-desk"
               ></use>
             </svg>
             <span class="header-book-counter"></span>
@@ -55,12 +54,12 @@
 
       <button type="button" class="menu-open-btn">
         <svg class="menu-open-icon" width="28" height="28">
-          <use href="/BookShelf/assets/symbol-defs-9ef8a4c2.svg#icon-burger-menu"></use>
+          <use href="/BookShelf/assets/symbol-defs-9f349f41.svg#icon-burger-menu"></use>
         </svg>
       </button>
       <button type="button" class="menu-close-btn hidden">
         <svg class="menu-close-icon" width="28" height="28">
-          <use href="/BookShelf/assets/symbol-defs-9ef8a4c2.svg#icon-menu-close"></use>
+          <use href="/BookShelf/assets/symbol-defs-9f349f41.svg#icon-menu-close"></use>
         </svg>
       </button>
     </div>
@@ -74,10 +73,10 @@
         </li>
         <li class="mob-item">
           <a class="mob-menu-calor" href="./card.html">
-            Shopping list
+            Favorites Books
             <svg class="mob-basket-icon" width="20" height="20">
               <use
-                href="/BookShelf/assets/symbol-defs-9ef8a4c2.svg#icon-shopping-icon-header-desk"
+                href="/BookShelf/assets/symbol-defs-9f349f41.svg#icon-shopping-icon-header-desk"
               ></use>
             </svg>
             <span class="header-book-counter"></span>
@@ -88,10 +87,10 @@
   </div>
 </header>
 
-  <main class="main">
-    <div class="container">
-      <aside>
-        <nav class="sidebar-category-container">
+    <main class="main">
+      <div class="container">
+        <aside>
+          <nav class="sidebar-category-container">
   <ul class="sidebar-category-list">
     <li class="sidebar-category-item all-category category-active">
       All categories
@@ -99,7 +98,7 @@
   </ul>
 </nav>
 
-        <div class="slider-container">
+          <div class="slider-container">
   <div class="slider-suport-title">
     <p class="slider-p">Support Ukraine</p>
     <img
@@ -218,7 +217,7 @@
     <svg class="slider-arrow-icon">
       <use
         class="slider-button-arrow"
-        href="/BookShelf/assets/symbol-defs-9ef8a4c2.svg#icon-Vector-down1-1"
+        href="/BookShelf/assets/symbol-defs-9f349f41.svg#icon-Vector-down1-1"
       ></use>
     </svg>
   </button>
@@ -226,27 +225,27 @@
     <svg class="slider-arrow-icon">
       <use
         class="slider-button-arrow"
-        href="/BookShelf/assets/symbol-defs-9ef8a4c2.svg#icon-Vector-up1-1"
+        href="/BookShelf/assets/symbol-defs-9f349f41.svg#icon-Vector-up1-1"
       ></use>
     </svg>
   </button>
 </div>
 
-      </aside>
-      <section class="bestsellers">
+        </aside>
+        <section class="bestsellers">
   <div class="bestsellers-container"></div>
   <div class="loader-container">
     <div class="loader"></div>
   </div>
 </section>
 
-    </div>
-  </main>
-  <div class="backdrop">
+      </div>
+    </main>
+    <div class="backdrop">
   <div class="modal-window">
     <button class="modal-close" type="button">
       <svg class="modal-icon-close">
-        <use href="/BookShelf/assets/symbol-defs-9ef8a4c2.svg#icon-close-mob"></use>
+        <use href="/BookShelf/assets/symbol-defs-9f349f41.svg#icon-close-mob"></use>
       </svg>
     </button>
 
@@ -256,12 +255,14 @@
   </div>
 </div>
 
-  <button class="scroll-up">
-    <svg class="scroll-up-icon" width="28" height="28">
-      <use class="scroll-up-button-arrow" href="/BookShelf/assets/symbol-defs-9ef8a4c2.svg#icon-Vector-scroll"></use>
-    </svg>
-  </button>
-  
-</body>
-
+    <button class="scroll-up">
+      <svg class="scroll-up-icon" width="28" height="28">
+        <use
+          class="scroll-up-button-arrow"
+          href="/BookShelf/assets/symbol-defs-9f349f41.svg#icon-Vector-scroll"
+        ></use>
+      </svg>
+    </button>
+    
+  </body>
 </html>
