@@ -136,6 +136,7 @@ body.dark-theme .cart-item {
   border-radius: 50%;
   flex-shrink: 0;
   transition: 0.5s;
+  padding: 0;
 }
 
 .cart-item-del-button:hover {
