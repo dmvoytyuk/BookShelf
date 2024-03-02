@@ -1,8 +1,8 @@
 import { renderTitle } from '../js/Services/helpers';
 import localStorageBooks from '../js/localstorage';
-import sprite from '../img/symbol-defs.svg';
-import amazon from '../img/amazon-n.png';
-import apple from '../img/apple-n.png';
+import sprite from './img/symbol-defs.svg';
+import amazon from './img/amazon-n.png';
+import apple from './img/apple-n.png';
 import { updateBooksCounter } from './updatecounter';
 
 const shoppingList = document.querySelector('.cart-list');
@@ -31,7 +31,6 @@ function renderShoppingList(books) {
           </div>
           <button data-id="${book._id}" class="cart-item-del-button">
             <svg class="cart-item-del-button-icon" width="12" height="12">
-
               <use href="${sprite}#icon-delete-shoppinglist" />
             </svg>
           </button>
