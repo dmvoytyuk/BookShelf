@@ -30,7 +30,7 @@ function renderShoppingList(books) {
             <p class="cart-item-category">${book.list_name}</p>
           </div>
           <button data-id="${book._id}" class="cart-item-del-button">
-            <svg class="cart-item-del-button-icon" width="45" height="45">
+            <svg class="cart-item-del-button-icon" width="14" height="14">
               <use href="${sprite}#icon-delete-shoppinglist"></use>
             </svg>
           </button>
