@@ -9,10 +9,10 @@
     
     
     <script type="module" crossorigin src="/BookShelf/commonHelpers2.js"></script>
-    <link rel="modulepreload" crossorigin href="/BookShelf/assets/vendor-8dea2054.js">
-    <link rel="modulepreload" crossorigin href="/BookShelf/assets/api-49e85282.js">
+    <link rel="modulepreload" crossorigin href="/BookShelf/assets/vendor-a5748273.js">
+    <link rel="modulepreload" crossorigin href="/BookShelf/assets/api-dde3f044.js">
     <link rel="stylesheet" href="/BookShelf/assets/vendor-e5212ee8.css">
-    <link rel="stylesheet" href="/BookShelf/assets/api-c3d2c8d2.css">
+    <link rel="stylesheet" href="/BookShelf/assets/api-09929ea6.css">
   </head>
 
   <body>
@@ -252,7 +252,7 @@
   </div>
 </div>
 
-    <div class="backdrop-modal-auth">
+    <div class="modal-auth-backdrop">
   <div class="modal-auth-container">
     <button class="modal-auth-close-button" name="close window">
       <svg class="modal-auth-icon-close">
@@ -263,7 +263,8 @@
         ></use>
       </svg>
     </button>
-    <form class="modal-auth-form">
+    <button class="modal-auth-signout-button" name="sign out">Sign Out</button>
+    <form class="modal-auth-form-signup">
       <input
         class="modal-auth-form-input"
         type="text"
@@ -284,6 +285,25 @@
       />
       <button class="modal-auth-from-button" type="submit">sign up</button>
     </form>
+    <form class="modal-auth-form-signin">
+      <input
+        class="modal-auth-form-input"
+        type="email"
+        name="email"
+        placeholder="e-mail"
+      />
+      <input
+        class="modal-auth-form-input"
+        type="password"
+        name="password"
+        placeholder="password"
+      />
+      <button class="modal-auth-from-button" type="submit">Sign In</button>
+    </form>
+    <ul class="modal-auth-options-list">
+      <li class="modal-auth-options-signin">sign in</li>
+      <li class="modal-auth-options-signup">sign up</li>
+    </ul>
   </div>
 </div>
 
