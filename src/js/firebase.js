@@ -3,14 +3,9 @@ import { getAuth } from 'firebase/auth';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { signOut } from 'firebase/auth';
-
-import { setPersistence } from 'firebase/auth';
-import { browserLocalPersistence } from 'firebase/auth';
-import { onAuthStateChanged } from 'firebase/auth';
 import { updateProfile } from 'firebase/auth';
-import { verifyBeforeUpdateEmail } from 'firebase/auth';
-import { updateEmail } from 'firebase/auth';
-import { deleteUser } from 'firebase/auth';
+import { getFirestore } from 'firebase/firestore';
+import { collection, addDoc } from 'firebase/firestore';
 
 // Import the functions you need from the SDKs you need
 // TODO: Add SDKs for Firebase products that you want to use
@@ -28,6 +23,7 @@ export const firebaseConfig = {
 
 export const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app);
+export const db = getFirestore(app);
 
 // setPersistence(auth, browserLocalPersistence);
 

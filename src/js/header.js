@@ -1,5 +1,3 @@
-import { showModalAuth } from './modalauth';
-
 document.addEventListener('DOMContentLoaded', function () {
   const home = document.querySelector('.header-menu-home');
   const shoppingList = document.querySelector('.header-menu-shopping');
@@ -101,10 +99,6 @@ document.addEventListener('DOMContentLoaded', function () {
     mobBasketIcon.classList.add('mob-basket-isactive');
   } else {
     mobeHomeMenu.classList.add('open-home');
-
     headerHomeMenu.classList.add('open-home');
   }
 });
-
-const buttonAuth = document.querySelector('.mob-menu-signinout ');
-buttonAuth.addEventListener('click', showModalAuth);

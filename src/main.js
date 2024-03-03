@@ -2,19 +2,18 @@ import './js/header';
 import './js/sidebarallcategories';
 import './js/support';
 
-import { auth } from './js/firebase';
+import { auth, db } from './js/firebase';
 import { onAuthStateChanged } from 'firebase/auth';
 
 import { topPageBestsellersBooks } from './js/bestsellers';
 import { updateBooksCounter } from './js/updatecounter';
-
+import { updateSignInOutButton } from './js/updateonlogin';
+import { collection, addDoc, setDoc, doc, getDocs } from 'firebase/firestore';
 onAuthStateChanged(auth, user => {
   if (user) {
-    // TODO
-    // 1. update header
-    console.log('you are logged in');
+    updateSignInOutButton();
   } else {
-    console.log('you have to log in');
+    updateSignInOutButton();
   }
 });
 
