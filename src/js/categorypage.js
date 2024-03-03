@@ -1,5 +1,4 @@
-import { hideLoader, showLoader } from '../main';
-import backendAPI from './Services/api';
+import { showLoader, hideLoader } from './Services/helpers';
 import { renderTitle, bookTemplate } from './Services/helpers';
 import { showModal } from './modalwindow';
 

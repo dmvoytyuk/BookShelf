@@ -1,5 +1,5 @@
 // Рендер информации в модалку
-import { showLoader, hideLoader } from '../main';
+// import { showLoader, hideLoader } from './Services/helpers';
 import backendAPI from './Services/api';
 import localStorageBooks from '../js/localstorage';
 import amazon from '../img/amazon-n.png';

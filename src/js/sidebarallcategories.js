@@ -1,4 +1,4 @@
-import { hideLoader, showLoader } from '../main';
+import { showLoader, hideLoader } from './Services/helpers';
 import backendAPI from './Services/api';
 import { renderBestBooks } from './bestsellers';
 import { renderCategoryPage } from './categorypage';
@@ -32,7 +32,6 @@ function categoryMarkup(data) {
     const bestBooksContainer = document.querySelector('.bestsellers-container');
     bestBooksContainer.innerHTML = '';
     showLoader();
-
     const categoryData = await backendAPI.getCategoryList();
     const markup = categoryMarkup(categoryData);
     categorySelectors.categoryList.insertAdjacentHTML('beforeend', markup);

@@ -1,9 +1,10 @@
 import { initializeApp } from 'firebase/app';
+import { getAuth } from 'firebase/auth';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
-import { getAuth } from 'firebase/auth';
+import { signOut } from 'firebase/auth';
+
 import { setPersistence } from 'firebase/auth';
-import { firebaseConfig } from './js/firebase';
 import { browserLocalPersistence } from 'firebase/auth';
 import { onAuthStateChanged } from 'firebase/auth';
 import { updateProfile } from 'firebase/auth';
@@ -25,78 +26,59 @@ export const firebaseConfig = {
   appId: '1:1065553942529:web:c3ec362a6a1c4d5d70c800',
 };
 
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
-// console.log(app);
-const auth = getAuth(app);
-setPersistence(auth, browserLocalPersistence);
+export const app = initializeApp(firebaseConfig);
+export const auth = getAuth(app);
 
-// signInWithEmailAndPassword(auth, 'asd@asd.com', '123456')
-//   .then(userCredential => {
-//     console.log('login ok');
-//     console.log(auth.currentUser);
-//   })
-//   .catch(error => {
-//     const errorCode = error.code;
-//     const errorMessage = error.message;
-//     console.log(error);
-//   });
+// setPersistence(auth, browserLocalPersistence);
 
-// .then(() => {
-//   console.log(auth.currentUser);
-//   updateEmail(auth.currentUser, 'zxc@asd.com');
-//   // console.log(auth.currentUser);
-// });
+const signUp = async (email, password) => {
+  await createUserWithEmailAndPassword(auth, email, password)
+    .then(userCredential => {
+      window.location.reload();
+    })
+    .catch(error => {
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      console.log(errorCode, ' ', errorMessage);
+    });
+};
 
-// deleteUser(user)
-//   .then(() => {
-//     console.log('deleted');
-//   })
-//   .catch(error => {
-//     console.log(error);
-//   });
+const signIn = async (email, password) => {
+  await signInWithEmailAndPassword(auth, email, password)
+    .then(user => {
+      window.location.reload();
+    })
+    .catch(error => {
+      console.log(error);
+    });
+};
 
-// setTimeout(() => {}, 500);
+export const signUserOut = async e => {
+  signOut(auth)
+    .then(() => {
+      window.location.reload();
+    })
+    .catch(error => {
+      console.log(error);
+    });
+};
 
-// onAuthStateChanged(user => {});
+export function signUserUp(e) {
+  e.preventDefault();
+  const userName = e.target.elements.name.value;
+  const userEmail = e.target.elements.email.value;
+  const userPassword = e.target.elements.email.value;
+  //TODO VALIDATION
+  signUp(userEmail, userPassword).then(() => {
+    updateProfile(auth.currentUser, {
+      displayName: userName,
+    });
+  });
+}
 
-// console.log(auth);
-
-// signInWithEmailAndPassword(auth, 'asd@asd.com', '123456')
-//   .then(userCredential => {
-//     console.log('login ok');
-//   })
-//   .catch(error => {
-//     const errorCode = error.code;
-//     const errorMessage = error.message;
-//     console.log(error);
-//   });
-
-// createUserWithEmailAndPassword(auth, 'asd@asd.com', '123456')
-//   .then(userCredential => {
-//     // Signed in
-//     const user = userCredential.user;
-//     console.log(user);
-//     // ...
-//   })
-//   .catch(error => {
-//     const errorCode = error.code;
-//     const errorMessage = error.message;
-//     console.log(errorCode, ' ', errorMessage);
-//   });
-
-// signInWithEmailAndPassword(auth, 'asd@asd.com', '123456')
-//   .then(userCredential => {
-//     // Signed in
-//     const user = userCredential.user;
-//     localStorage.setItem('uid', user.uid);
-//     // ...
-//   })
-//   .catch(error => {
-//     const errorCode = error.code;
-//     const errorMessage = error.message;
-//     console.log(error);
-//   });
-
-// //
-// console.log(auth);
+export function signUserIn(e) {
+  e.preventDefault();
+  const userEmail = e.target.elements.email.value;
+  const userPassword = e.target.elements.email.value;
+  signIn(userEmail, userPassword);
+}

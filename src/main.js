@@ -1,29 +1,35 @@
 import './js/header';
-// import './js/bestsellers';
-// // import './js/categorypage';
 import './js/sidebarallcategories';
 import './js/support';
-// import './js/Services/api';
-// import './js/Services/helpers';
-// import './js/modalwindow';
-// import './js/localstorage';
+
+import { auth } from './js/firebase';
+import { onAuthStateChanged } from 'firebase/auth';
 
 import { topPageBestsellersBooks } from './js/bestsellers';
 import { updateBooksCounter } from './js/updatecounter';
 
+onAuthStateChanged(auth, user => {
+  if (user) {
+    // TODO
+    // 1. update header
+    console.log(user);
+  } else {
+    console.log('you have to log in');
+  }
+});
+
 topPageBestsellersBooks();
 updateBooksCounter();
 
+//REFACTOR
 document.addEventListener('DOMContentLoaded', function () {
   const scrollUpButton = document.querySelector('.scroll-up');
 
   window.addEventListener('scroll', function () {
     if (window.scrollY > 600) {
       scrollUpButton.classList.add('show');
-      // scrollUpButton.classList.add('border');
     } else {
       scrollUpButton.classList.remove('show');
-      // scrollUpButton.classList.remove('border');
     }
   });
 
@@ -32,19 +38,7 @@ document.addEventListener('DOMContentLoaded', function () {
       top: 0,
       behavior: 'smooth',
     });
-    // scrollUpButton.classList.remove('.scroll-up.border');
   });
 });
 
-export function showLoader() {
-  const loader = document.querySelector('.loader-container');
-  const scrollUpButton = document.querySelector('.scroll-up');
-
-  loader.classList.remove('is-hidden-loader');
-  scrollUpButton.classList.remove('show');
-}
-
-export function hideLoader() {
-  const loader = document.querySelector('.loader-container');
-  loader.classList.add('is-hidden-loader');
-}
+// Initialize Firebase

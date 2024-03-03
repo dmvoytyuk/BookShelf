@@ -35,3 +35,15 @@ export function scrollTitleUp() {
     inline: 'nearest',
   });
 }
+
+export function showLoader() {
+  const loader = document.querySelector('.loader-container');
+  const scrollUpButton = document.querySelector('.scroll-up');
+  loader.classList.remove('is-hidden-loader');
+  scrollUpButton.classList.remove('show');
+}
+
+export function hideLoader() {
+  const loader = document.querySelector('.loader-container');
+  loader.classList.add('is-hidden-loader');
+}

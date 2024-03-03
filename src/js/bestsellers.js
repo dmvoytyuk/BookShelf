@@ -1,10 +1,9 @@
-import { hideLoader } from '../main';
 import backendAPI from './Services/api';
 import { bookTemplate, renderTitle } from './Services/helpers';
 import { renderCategoryPage } from './categorypage';
 import { showModal } from './modalwindow';
-import { showLoader } from '../main';
 import { scrollTitleUp } from './Services/helpers';
+import { showLoader, hideLoader } from './Services/helpers';
 
 // ==================================================================================
 // Функція для відображення Best Sellers Books
