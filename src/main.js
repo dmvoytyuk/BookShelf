@@ -12,7 +12,7 @@ onAuthStateChanged(auth, user => {
   if (user) {
     // TODO
     // 1. update header
-    console.log(user);
+    console.log('you are logged in');
   } else {
     console.log('you have to log in');
   }
