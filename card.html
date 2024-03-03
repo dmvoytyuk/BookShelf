@@ -9,9 +9,9 @@
     
     
     <script type="module" crossorigin src="/BookShelf/commonHelpers.js"></script>
-    <link rel="modulepreload" crossorigin href="/BookShelf/assets/vendor-a5748273.js">
-    <link rel="modulepreload" crossorigin href="/BookShelf/assets/api-43211607.js">
-    <link rel="stylesheet" href="/BookShelf/assets/api-87e73e28.css">
+    <link rel="modulepreload" crossorigin href="/BookShelf/assets/vendor-929ff552.js">
+    <link rel="modulepreload" crossorigin href="/BookShelf/assets/updateonlogin-9a9f3ca5.js">
+    <link rel="stylesheet" href="/BookShelf/assets/updateonlogin-75fac6c8.css">
     <link rel="stylesheet" href="/BookShelf/assets/vendor-e5212ee8.css">
   </head>
 
@@ -33,7 +33,7 @@
         </li>
         <li class="header-item">
           <a class="header-menu-shopping" href="./card.html">
-            Favorites Books
+            Favorite Books
 
             <svg class="basket-icon" width="15" height="15">
               <use href="/BookShelf/assets/symbol-defs-667647db.svg#icon-header-shopping"></use>
@@ -44,6 +44,7 @@
       </ul>
     </nav>
     <div class="box-btn">
+      <button class="signinout-button" name="authentication"></button>
       <div class="theme-switch">
         <input class="theme-switch-input" type="checkbox" id="checkbox" />
         <label class="theme-toggle" for="checkbox">Switch-theme</label>
@@ -80,7 +81,7 @@
         </li>
       </ul>
     </div>
-    <button class="mob-menu-signinout" name="authentication">Sign In</button>
+    <button class="signinout-button" name="authentication">Sign In</button>
   </div>
 </header>
 
@@ -263,6 +264,61 @@
         </section>
       </div>
     </main>
+    <div class="modal-auth-backdrop">
+  <div class="modal-auth-container">
+    <button class="modal-auth-close-button" name="close window">
+      <svg class="modal-auth-icon-close">
+        <use
+          href="/BookShelf/assets/symbol-defs-667647db.svg#icon-close-modal"
+          height="14"
+          width="14"
+        ></use>
+      </svg>
+    </button>
+    <button class="modal-auth-signout-button" name="sign out">Sign Out</button>
+    <form class="modal-auth-form-signup">
+      <input
+        class="modal-auth-form-input"
+        type="text"
+        name="name"
+        placeholder="name"
+      />
+      <input
+        class="modal-auth-form-input"
+        type="email"
+        name="email"
+        placeholder="e-mail"
+      />
+      <input
+        class="modal-auth-form-input"
+        type="password"
+        name="password"
+        placeholder="password"
+      />
+      <button class="modal-auth-from-button" type="submit">sign up</button>
+    </form>
+    <form class="modal-auth-form-signin">
+      <input
+        class="modal-auth-form-input"
+        type="email"
+        name="email"
+        placeholder="e-mail"
+      />
+      <input
+        class="modal-auth-form-input"
+        type="password"
+        name="password"
+        placeholder="password"
+      />
+      <button class="modal-auth-from-button" type="submit">Sign In</button>
+    </form>
+    <ul class="modal-auth-options-list">
+      <li class="modal-auth-options-signin">sign in</li>
+      <li class="modal-auth-options-signup">sign up</li>
+    </ul>
+  </div>
+</div>
+
     
   </body>
 </html>
