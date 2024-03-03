@@ -10,9 +10,9 @@
     
     <script type="module" crossorigin src="/BookShelf/commonHelpers2.js"></script>
     <link rel="modulepreload" crossorigin href="/BookShelf/assets/vendor-8dea2054.js">
-    <link rel="modulepreload" crossorigin href="/BookShelf/assets/api-fec88107.js">
+    <link rel="modulepreload" crossorigin href="/BookShelf/assets/api-49e85282.js">
     <link rel="stylesheet" href="/BookShelf/assets/vendor-e5212ee8.css">
-    <link rel="stylesheet" href="/BookShelf/assets/api-dcda77c9.css">
+    <link rel="stylesheet" href="/BookShelf/assets/api-c3d2c8d2.css">
   </head>
 
   <body>
@@ -71,7 +71,7 @@
         </li>
         <li class="mob-item">
           <a class="mob-menu-calor" href="./card.html">
-            Favorites Books
+            Favorite Books
             <svg class="mob-basket-icon" width="20" height="20">
               <use href="/BookShelf/assets/symbol-defs-667647db.svg#icon-header-shopping"></use>
             </svg>
@@ -80,6 +80,7 @@
         </li>
       </ul>
     </div>
+    <button class="mob-menu-signinout" name="authentication">Sign In</button>
   </div>
 </header>
 
@@ -248,6 +249,41 @@
     <div class="modal-wrapper"></div>
     <button class="modal-btn-addremove"></button>
     <p class="congrats"></p>
+  </div>
+</div>
+
+    <div class="backdrop-modal-auth">
+  <div class="modal-auth-container">
+    <button class="modal-auth-close-button" name="close window">
+      <svg class="modal-auth-icon-close">
+        <use
+          href="/BookShelf/assets/symbol-defs-667647db.svg#icon-close-modal"
+          height="14"
+          width="14"
+        ></use>
+      </svg>
+    </button>
+    <form class="modal-auth-form">
+      <input
+        class="modal-auth-form-input"
+        type="text"
+        name="name"
+        placeholder="name"
+      />
+      <input
+        class="modal-auth-form-input"
+        type="email"
+        name="email"
+        placeholder="e-mail"
+      />
+      <input
+        class="modal-auth-form-input"
+        type="password"
+        name="password"
+        placeholder="password"
+      />
+      <button class="modal-auth-from-button" type="submit">sign up</button>
+    </form>
   </div>
 </div>
 
