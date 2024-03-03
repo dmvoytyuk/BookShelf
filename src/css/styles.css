@@ -16,6 +16,7 @@
 @import url('./categorypage.css');
 @import url('./helpers.css');
 @import url('./fonts.css');
+@import url('./modalauth.css');
 
 :root {
   font-synthesis: none;

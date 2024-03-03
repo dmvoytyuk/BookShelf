@@ -1,4 +1,4 @@
-// функція зміни стану активності посилання
+import { showModalAuth } from './modalauth';
 
 document.addEventListener('DOMContentLoaded', function () {
   const home = document.querySelector('.header-menu-home');
@@ -53,17 +53,14 @@ if (savedTheme === 'dark') {
 themeSwitch.addEventListener('change', toggleTheme);
 
 // відкриття та закриття мобільного меню
-
 const menuOpenButton = document.querySelector('.menu-open-btn');
 const menuCloseButton = document.querySelector('.menu-close-btn');
 const mobMenu = document.querySelector('.mob-menu');
 
 // Відкриття меню при кліку на кнопку відкриття
 menuOpenButton.addEventListener('click', () => {
-  // document.body.style.overflow = 'hidden';
   document.body.classList.add('overflow-hidden');
   mobMenu.classList.add('is-open');
-
   menuOpenButton.classList.remove('is-open');
   menuOpenButton.classList.add('hidden');
   menuCloseButton.classList.remove('hidden');
@@ -71,55 +68,11 @@ menuOpenButton.addEventListener('click', () => {
 
 // Закриття меню при кліку на кнопку закриття
 menuCloseButton.addEventListener('click', () => {
-  // document.body.style.overflow = 'auto';
   document.body.classList.remove('overflow-hidden');
   mobMenu.classList.remove('is-open');
   menuOpenButton.classList.remove('hidden');
   menuCloseButton.classList.add('hidden');
 });
-
-//функція яка робить активним посилання в мобільному меню
-
-// document.addEventListener('DOMContentLoaded', function () {
-
-//   const home = document.querySelector('.mob-menu-home');
-//   const shoppingList = document.querySelector('.mob-menu-calor');
-//   const mobBasketIcon = document.querySelector('.mob-basket-icon')
-//   function applyBackground() {
-//     const currentPath = window.location.pathname;
-//     home.classList.toggle('btn-active-home', currentPath === '/index.html' || currentPath === '/');
-//     shoppingList.classList.toggle('btn-active-shopping', currentPath.includes('card.html'));
-//     mobBasketIcon.classList.toggle('mob-basket-isactive', currentPath.includes('card.html'));
-//   }
-//   applyBackground();
-//   home.addEventListener('click', function (event) {
-//     event.preventDefault();
-//     window.location.href = './index.html';
-//   });
-//   shoppingList.addEventListener('click', function (event) {
-//     event.preventDefault();
-//     window.location.href = './card.html';
-//   });
-// });
-
-// document.addEventListener('DOMContentLoaded', function() {
-//   const home = document.querySelector('.header-menu-home');
-//   const shoppingList = document.querySelector('.header-menu-shopping');
-//   function applyBackground() {
-//     const currentPath = window.location.pathname;
-//     home.classList.toggle('btn-active', currentPath === '/index.html' || currentPath === '/');
-//     shoppingList.classList.toggle('btn-active', currentPath.includes('card.html'));
-//   }
-//   applyBackground();
-//   home.addEventListener('click', function (event) {
-//     event.preventDefault();
-//     window.location.href = './index.html';
-//   });
-//   shoppingList.addEventListener('click', function (event) {
-//     event.preventDefault();
-//     window.location.href = './card.html';
-//   });
-// });
 
 document.addEventListener('DOMContentLoaded', function () {
   const mobeHomeMenu = document.querySelector('.mob-menu-home');
@@ -153,49 +106,5 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 });
 
-//comented
-
-
-// document.addEventListener('DOMContentLoaded', function() {
-//   const home = document.querySelector('.mob-menu-home');
-//   const shoppingList = document.querySelector('.mob-menu-calor');
-//   const mobBasketIcon = document.querySelector('.mob-basket-icon');
-//   function applyBackground() {
-//     const currentPath = window.location.pathname;
-//     home.classList.toggle('btn-active-home', currentPath === '/index.html' || currentPath === '/');
-//     shoppingList.classList.toggle('btn-active-shopping', currentPath.includes('card.html'));
-//     mobBasketIcon.classList.toggle('mob-basket-isactive', currentPath.includes('card.html'));
-//   }
-//   applyBackground();
-//   home.addEventListener('click', function (event) {
-//     event.preventDefault();
-//     window.location.href = './index.html';
-//   });
-//   shoppingList.addEventListener('click', function (event) {
-//     event.preventDefault();
-//     window.location.href = './card.html';
-//   });
-
-// comented
-
-// document.addEventListener('DOMContentLoaded', function() {
-//   const home = document.querySelector('.header-menu-home');
-//   const shoppingList = document.querySelector('.header-menu-shopping');
-//   const headerIcon = document.querySelector('.basket-icon')
-//   function applyBackground() {
-//     const currentPath = window.location.pathname;
-//     home.classList.toggle('btn-active', currentPath.includes('index.html'));
-//     shoppingList.classList.toggle('btn-active', currentPath.includes('card.html'));
-//     headerIcon.classList.toggle('basket-icon-catch', currentPath.includes('card.html'));
-
-//   }
-//   applyBackground();
-//   home.addEventListener('click', function (event) {
-//     event.preventDefault();
-//     window.location.href = './index.html';
-//   });
-//   shoppingList.addEventListener('click', function (event) {
-//     event.preventDefault();
-//     window.location.href = './card.html';
-//   });
-// });
+const buttonAuth = document.querySelector('.mob-menu-signinout ');
+buttonAuth.addEventListener('click', showModalAuth);
