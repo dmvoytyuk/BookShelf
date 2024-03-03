@@ -60,7 +60,7 @@ const mobMenu = document.querySelector('.mob-menu');
 // Відкриття меню при кліку на кнопку відкриття
 menuOpenButton.addEventListener('click', () => {
   document.body.classList.add('overflow-hidden');
-  mobMenu.classList.add('is-open');
+  mobMenu.classList.add('mob-menu-is-open');
   menuOpenButton.classList.remove('is-open');
   menuOpenButton.classList.add('hidden');
   menuCloseButton.classList.remove('hidden');
@@ -69,7 +69,7 @@ menuOpenButton.addEventListener('click', () => {
 // Закриття меню при кліку на кнопку закриття
 menuCloseButton.addEventListener('click', () => {
   document.body.classList.remove('overflow-hidden');
-  mobMenu.classList.remove('is-open');
+  mobMenu.classList.remove('mob-menu-is-open');
   menuOpenButton.classList.remove('hidden');
   menuCloseButton.classList.add('hidden');
 });

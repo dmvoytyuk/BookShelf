@@ -455,7 +455,7 @@ body.dark-theme .basket-icon-catch {
   display: none;
 }
 
-.is-open {
+.mob-menu-is-open {
   display: flex;
 }
 
@@ -468,6 +468,10 @@ body.dark-theme .basket-icon-catch {
 @media screen and (min-width: 768px) {
   .overflow-hidden {
     overflow: auto;
+  }
+
+  .mob-menu-is-open {
+    display: none;
   }
   .header-container {
     padding-left: 32px !important;
