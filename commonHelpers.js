@@ -1,4 +1,4 @@
-import{r as B,l as d,u as g,a as L,b as y,c as S,d as $}from"./assets/updateonlogin-9a9f3ca5.js";import{o as w}from"./assets/vendor-929ff552.js";const M="/BookShelf/assets/symbol-defs-667647db.svg",r=document.querySelector(".cart-list"),T=document.querySelector(".cart-empty-container"),s=document.querySelector(".pagination-list"),C=document.querySelector(".cart-buttons-container");B(".shoppinglist-title","Favorite Books");function a(t){r.innerHTML="";const o=t.map(e=>`<li class="cart-item">
+import{r as B,l as d,u as g,a as L,b as y,c as S,d as $}from"./assets/updateonlogin-6dd16d39.js";import{o as w}from"./assets/vendor-929ff552.js";const M="/BookShelf/assets/symbol-defs-667647db.svg",r=document.querySelector(".cart-list"),T=document.querySelector(".cart-empty-container"),s=document.querySelector(".pagination-list"),C=document.querySelector(".cart-buttons-container");B(".shoppinglist-title","Favorite Books");function a(t){r.innerHTML="";const o=t.map(e=>`<li class="cart-item">
       <img
         class="cart-item-img"
         src="${e.book_image}"
