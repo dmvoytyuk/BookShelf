@@ -6,7 +6,8 @@ export function updateSignInOutButton() {
   const user = auth.currentUser;
   if (user) {
     signInOutButton.forEach(button => {
-      button.textContent = `${user.displayName}, Sign Out`;
+      const name = user.displayName || 'No Name';
+      button.textContent = `${name}, Sign Out`;
       button.addEventListener('click', signUserOut);
     });
   } else {
