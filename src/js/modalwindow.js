@@ -6,7 +6,13 @@ import amazon from '../img/amazon-n.png';
 import apple from '../img/apple-n.png';
 import { updateBooksCounter } from './updatecounter';
 import { auth, db } from './firebase';
-import { collection, setDoc, doc, getDocs } from 'firebase/firestore';
+import {
+  collection,
+  setDoc,
+  doc,
+  getDocs,
+  deleteDoc,
+} from 'firebase/firestore';
 
 const backdrop = document.querySelector('.backdrop');
 const modalWrapper = document.querySelector('.modal-wrapper');
@@ -88,44 +94,37 @@ function markupBooks(modalData) {
 async function manageButton(btnAddRemove, bookId) {
   if (auth.currentUser) {
     let bookExist = false;
-    const books = await getDocs(collection(db, auth.currentUser.uid)).then(
-      books => {
-        books.forEach(book => {
-          console.log(book);
-          if (book.id === bookId) {
-            bookExist = true;
-          }
-        });
-        if (bookExist) {
-          btnAddRemove.textContent = 'remove from the shopping list';
-        } else {
-          btnAddRemove.textContent = 'add to shopping list';
+    await getDocs(collection(db, auth.currentUser.uid)).then(books => {
+      books.forEach(book => {
+        if (book.id === bookId) {
+          bookExist = true;
         }
+      });
+      console.log(bookExist);
+      if (bookExist) {
+        btnAddRemove.textContent = 'remove from favorite list';
+      } else {
+        btnAddRemove.textContent = 'add to favorite list';
       }
-    );
+      btnAddRemove.blur();
+    });
   } else {
     if (localStorageBooks.isBookExsist(bookId)) {
-      btnAddRemove.textContent = 'remove from the shopping list';
-      // btnAddRemove.classList.add('modal-btn-remove');
+      btnAddRemove.textContent = 'remove from favorite list';
       bookAddMsg.classList.add('modal-text-congratulations');
-      btnAddRemove.blur();
     } else {
-      btnAddRemove.textContent = 'add to shopping list';
-      // btnAddRemove.classList.remove('modal-btn-remove');
+      btnAddRemove.textContent = 'add to favorite list';
       bookAddMsg.classList.remove('modal-text-congratulations');
-      btnAddRemove.blur();
     }
+    btnAddRemove.blur();
   }
 }
 function buttonClickHandler(e) {
-  if (btnAddRemove.textContent === 'add to shopping list') {
+  if (btnAddRemove.textContent === 'add to favorite list') {
     addBook(book);
-    manageButton(btnAddRemove, book._id);
   } else {
     removeBook(book);
-    manageButton(btnAddRemove, book._id);
   }
-  // btnAddRemove.removeEventListener('click', buttonClickHandler);
 }
 
 // ============Додав функції дії=====================
@@ -155,7 +154,7 @@ async function addBook(book) {
   const user = auth.currentUser;
   if (user) {
     await setDoc(doc(db, user.uid, book._id), {
-      // id: book._id,
+      _id: book._id,
       title: book.title,
       author: book.author,
       list_name: book.list_name,
@@ -165,18 +164,28 @@ async function addBook(book) {
       apple_buy_link: book.apple_buy_link,
     }).then(() => {
       bookAddMsg.textContent =
-        'Сongratulations! You have added the book to the shopping list. To delete, press the button "Remove from the shopping list".';
+        'Сongratulations! You have added the book to favorite books list. To delete, press the button "Remove from the shopping list".';
+      manageButton(btnAddRemove, book._id);
     });
   } else {
     localStorageBooks.addBookToFavorites(book);
     updateBooksCounter();
     bookAddMsg.textContent =
-      'Сongratulations! You have added the book to the shopping list. To delete, press the button "Remove from the shopping list".';
+      'Сongratulations! You have added the book to books list list. To delete, press the button "Remove from the shopping list".';
   }
 }
 
-function removeBook(bookId) {
-  localStorageBooks.removeBookFromFavorites(bookId);
-  updateBooksCounter();
-  bookAddMsg.textContent = '';
+async function removeBook(book) {
+  const user = auth.currentUser;
+  if (user) {
+    await deleteDoc(doc(db, user.uid, book._id)).then(() => {
+      bookAddMsg.textContent = '';
+      manageButton(btnAddRemove, book._id);
+    });
+  } else {
+    localStorageBooks.removeBookFromFavorites(book);
+    updateBooksCounter();
+    bookAddMsg.textContent = '';
+    manageButton(btnAddRemove, book._id);
+  }
 }

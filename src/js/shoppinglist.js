@@ -4,6 +4,15 @@ import sprite from '../img/symbol-defs.svg';
 import amazon from '../img/amazon-n.png';
 import apple from '../img/apple-n.png';
 import { updateBooksCounter } from './updatecounter';
+import { auth, db } from './firebase';
+import {
+  collection,
+  setDoc,
+  doc,
+  getDocs,
+  deleteDoc,
+} from 'firebase/firestore';
+import { getAuth } from 'firebase/auth';
 
 const shoppingList = document.querySelector('.cart-list');
 const cartEmptyMsg = document.querySelector('.cart-empty-container');
@@ -79,7 +88,7 @@ function renderShoppingList(books) {
   shoppingList.insertAdjacentHTML('beforeend', hmtlBookList);
 }
 
-let pageData = {
+export let pageData = {
   books: [],
   currentPage: 0,
   nextPage: 0,
@@ -92,10 +101,27 @@ let pageData = {
   pagesOnLastGroup: 0,
 };
 
-function renderShoppingListPage(pageData) {
+// const auth = getAuth();
+
+export async function renderShoppingListPage(auth, pageData) {
   paginationList.removeEventListener('click', buttonClickHandler);
   shoppingList.removeEventListener('click', removeBookFromList);
-  const books = localStorageBooks.getAllBooks();
+  const user = auth.currentUser;
+  const cacheBooks = [];
+  if (user) {
+    await getDocs(collection(db, user.uid)).then(books => {
+      books.forEach(book => {
+        cacheBooks.push(book.data());
+      });
+      renderShoppingAndPagination(pageData, cacheBooks);
+    });
+  } else {
+    const books = localStorageBooks.getAllBooks();
+    renderShoppingAndPagination(pageData, books);
+  }
+}
+
+function renderShoppingAndPagination(pageData, books) {
   shoppingList.innerHTML = '';
   paginationList.innerHTML = '';
   pageData.totalBooks = books.length;
@@ -182,6 +208,25 @@ function moveButtonToCenter(clickedElement) {
 function removeBookFromList(e) {
   if (e.target.closest('.cart-item-del-button') !== null) {
     const bookId = e.target.closest('.cart-item-del-button').dataset.id;
+    removeBook(auth, bookId);
+  }
+}
+
+async function removeBook(auth, bookId) {
+  const user = auth.currentUser;
+  if (user) {
+    await deleteDoc(doc(db, user.uid, bookId)).then(() => {
+      if (
+        parseInt(pageData.currentPage) === parseInt(pageData.totalPages) - 1 &&
+        pageData.books[pageData.currentPage].length === 1
+      ) {
+        if (pageData.currentPage >= 1) {
+          pageData.currentPage -= 1;
+        }
+      }
+      renderShoppingListPage(auth, pageData);
+    });
+  } else {
     localStorageBooks.removeBookFromFavorites(bookId);
     updateBooksCounter();
     if (
@@ -192,7 +237,7 @@ function removeBookFromList(e) {
         pageData.currentPage -= 1;
       }
     }
-    renderShoppingListPage(pageData);
+    renderShoppingListPage(auth, pageData);
   }
 }
 
@@ -245,4 +290,4 @@ function createBooksListsPerPage(books, booksPerPage, totalPages) {
 //   localStorageBooks.addBookToFavorites(book);
 // }
 
-renderShoppingListPage(pageData);
+// renderShoppingListPage(auth, pageData);

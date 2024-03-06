@@ -95,8 +95,8 @@ document.addEventListener('DOMContentLoaded', function () {
   ) {
     mobShoppingList.classList.add('open-list');
     headerShoppingList.classList.add('open-list');
-    basketIcon.classList.add('basket-icon-catch');
-    mobBasketIcon.classList.add('mob-basket-isactive');
+    // basketIcon.classList.add('basket-icon-catch');
+    // mobBasketIcon.classList.add('mob-basket-isactive');
   } else {
     mobeHomeMenu.classList.add('open-home');
     headerHomeMenu.classList.add('open-home');
