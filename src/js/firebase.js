@@ -59,13 +59,13 @@ export const signUserOut = async e => {
     });
 };
 
-export function signUserUp(e) {
+export async function signUserUp(e) {
   e.preventDefault();
   const userName = e.target.elements.name.value;
   const userEmail = e.target.elements.email.value;
   const userPassword = e.target.elements.email.value;
   //TODO VALIDATION
-  signUp(userEmail, userPassword).then(() => {
+  await signUp(userEmail, userPassword).then(() => {
     updateProfile(auth.currentUser, {
       displayName: userName,
     });

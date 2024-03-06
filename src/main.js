@@ -11,6 +11,7 @@ import { updateSignInOutButton } from './js/updateonlogin';
 import { collection, addDoc, setDoc, doc, getDocs } from 'firebase/firestore';
 onAuthStateChanged(auth, user => {
   if (user) {
+    console.log(user);
     updateSignInOutButton();
   } else {
     updateSignInOutButton();
