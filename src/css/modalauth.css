@@ -114,6 +114,14 @@
   text-transform: uppercase;
 }
 
+.modal-auth-options-signin {
+  cursor: pointer;
+}
+
+.modal-auth-options-signup {
+  cursor: pointer;
+}
+
 .active {
   font-weight: 900;
   text-decoration: underline;
