@@ -1,4 +1,4 @@
-import{r as B,l as d,u as g,a as L,b as y,c as S,d as $}from"./assets/updateonlogin-7b2cec89.js";import{o as w}from"./assets/vendor-929ff552.js";const M="/BookShelf/assets/symbol-defs-667647db.svg",r=document.querySelector(".cart-list"),T=document.querySelector(".cart-empty-container"),s=document.querySelector(".pagination-list"),C=document.querySelector(".cart-buttons-container");B(".shoppinglist-title","Favorite Books");function a(t){r.innerHTML="";const o=t.map(e=>`<li class="cart-item">
+import{r as S,d as m,l as P,u as h,a as $,b as w,c as a,e as M}from"./assets/updateonlogin-0d69f905.js";import{g as T,c as C,d as I,a as _,o as q}from"./assets/vendor-76c4d237.js";const E="/BookShelf/assets/symbol-defs-667647db.svg",c=document.querySelector(".cart-list"),H=document.querySelector(".cart-empty-container"),r=document.querySelector(".pagination-list"),z=document.querySelector(".cart-buttons-container");S(".shoppinglist-title","Favorite Books");function d(t){c.innerHTML="";const o=t.map(e=>`<li class="cart-item">
       <img
         class="cart-item-img"
         src="${e.book_image}"
@@ -14,7 +14,7 @@ import{r as B,l as d,u as g,a as L,b as y,c as S,d as $}from"./assets/updateonlo
           </div>
           <button data-id="${e._id}" class="cart-item-del-button">
             <svg class="cart-item-del-button-icon" width="14" height="14">
-              <use href="${M}#icon-delete-shoppinglist"></use>
+              <use href="${E}#icon-delete-shoppinglist"></use>
             </svg>
           </button>
         </div>
@@ -32,7 +32,7 @@ import{r as B,l as d,u as g,a as L,b as y,c as S,d as $}from"./assets/updateonlo
               >
                 <img
                   class="cart-items-amazon"
-                  src="${L}"
+                  src="${$}"
                   alt="shopping cart empty"
                   height="11"
                   width="32"
@@ -46,7 +46,7 @@ import{r as B,l as d,u as g,a as L,b as y,c as S,d as $}from"./assets/updateonlo
                 <img
                   class="cart-items-apple"
 
-                  src="${y}"
+                  src="${w}"
                   alt="shopping cart empty"
                   height="16"
                   width="16"
@@ -56,5 +56,5 @@ import{r as B,l as d,u as g,a as L,b as y,c as S,d as $}from"./assets/updateonlo
           </div>
         </div>
       </div>
-    </li>`).join("");r.insertAdjacentHTML("beforeend",o)}let n={books:[],currentPage:0,nextPage:0,prevPage:0,totalBooks:0,totalPages:0,booksPerPage:0,buttonsPerPage:0,totalButtonsGroups:0,pagesOnLastGroup:0};function m(t){s.removeEventListener("click",l),r.removeEventListener("click",u);const o=d.getAllBooks();if(r.innerHTML="",s.innerHTML="",t.totalBooks=o.length,t.booksPerPage=I(),t.totalPages=H(t.totalBooks,t.booksPerPage),t.books=z(o,t.booksPerPage,t.totalPages),t.buttonsPerPage=q(),t.totalButtonsGroups=Math.ceil(t.totalPages/t.buttonsPerPage),t.pagesOnLastGroup=t.totalPages%t.totalButtonsGroups,t.totalBooks>0){if(t.totalPages===1&&a(t.books[0]),t.totalPages>1){a(t.books[t.currentPage]),_(t,s),f(t.currentPage);const e=document.querySelector(".active");P(e),s.addEventListener("click",l)}r.addEventListener("click",u)}else T.classList.remove("is-hidden")}function _(t,o){if(o.innerHTML="",t.totalPages>1)for(let e=0;e<t.totalPages;e++)o.insertAdjacentHTML("beforeend",`<li><button data-page="${e}">${e+1}</button></li>`)}function l(t){const o=t.target.closest("button");if(o){const e=o.dataset.page;e&&(a(n.books[e]),f(e),n.currentPage=e,P(o))}}function P(t){const o=t.getBoundingClientRect(),e=C.getBoundingClientRect(),c=s.getBoundingClientRect(),i=e.width/2,p=o.width/2,v=o.left,b=c.left,k=parseInt(i)-parseInt(v)-parseInt(p)+parseInt(b);s.style.translate=`${k}px 0`}function u(t){if(t.target.closest(".cart-item-del-button")!==null){const o=t.target.closest(".cart-item-del-button").dataset.id;d.removeBookFromFavorites(o),g(),parseInt(n.currentPage)===parseInt(n.totalPages)-1&&n.books[n.currentPage].length===1&&n.currentPage>=1&&(n.currentPage-=1),m(n)}}function h(){return window.innerWidth<767}function I(){return h()?4:3}function q(){return h()?2:3}function H(t,o){return Math.ceil(t/o)}function f(t){const o=document.querySelector(".active");o==null||o.classList.remove("active"),document.querySelector(`[data-page="${t}"]`).classList.add("active")}function z(t,o,e){let c=[];for(let i=0;i<e;i++)c[i]=t.splice(0,o);return c}m(n);w($,t=>{S(),t||console.log("you have to log in")});g();
+    </li>`).join("");c.insertAdjacentHTML("beforeend",o)}let n={books:[],currentPage:0,nextPage:0,prevPage:0,totalBooks:0,totalPages:0,booksPerPage:0,buttonsPerPage:0,totalButtonsGroups:0,pagesOnLastGroup:0};async function l(t,o){r.removeEventListener("click",f),c.removeEventListener("click",v);const e=t.currentUser,i=[];if(e)await T(C(m,e.uid)).then(s=>{s.forEach(u=>{i.push(u.data())}),g(o,i)});else{const s=P.getAllBooks();g(o,s)}}function g(t,o){if(c.innerHTML="",r.innerHTML="",t.totalBooks=o.length,t.booksPerPage=O(),t.totalPages=j(t.totalBooks,t.booksPerPage),t.books=R(o,t.booksPerPage,t.totalPages),t.buttonsPerPage=F(),t.totalButtonsGroups=Math.ceil(t.totalPages/t.buttonsPerPage),t.pagesOnLastGroup=t.totalPages%t.totalButtonsGroups,t.totalBooks>0){if(t.totalPages===1&&d(t.books[0]),t.totalPages>1){d(t.books[t.currentPage]),A(t,r),b(t.currentPage);const e=document.querySelector(".active");p(e),r.addEventListener("click",f)}c.addEventListener("click",v)}else H.classList.remove("is-hidden")}function A(t,o){if(o.innerHTML="",t.totalPages>1)for(let e=0;e<t.totalPages;e++)o.insertAdjacentHTML("beforeend",`<li><button data-page="${e}">${e+1}</button></li>`)}function f(t){const o=t.target.closest("button");if(o){const e=o.dataset.page;e&&(d(n.books[e]),b(e),n.currentPage=e,p(o))}}function p(t){const o=t.getBoundingClientRect(),e=z.getBoundingClientRect(),i=r.getBoundingClientRect(),s=e.width/2,u=o.width/2,B=o.left,L=i.left,y=parseInt(s)-parseInt(B)-parseInt(u)+parseInt(L);r.style.translate=`${y}px 0`}function v(t){if(t.target.closest(".cart-item-del-button")!==null){const o=t.target.closest(".cart-item-del-button").dataset.id;G(a,o)}}async function G(t,o){const e=t.currentUser;e?await I(_(m,e.uid,o)).then(()=>{parseInt(n.currentPage)===parseInt(n.totalPages)-1&&n.books[n.currentPage].length===1&&n.currentPage>=1&&(n.currentPage-=1),l(t,n)}):(P.removeBookFromFavorites(o),h(),parseInt(n.currentPage)===parseInt(n.totalPages)-1&&n.books[n.currentPage].length===1&&n.currentPage>=1&&(n.currentPage-=1),l(t,n))}function k(){return window.innerWidth<767}function O(){return k()?4:3}function F(){return k()?2:3}function j(t,o){return Math.ceil(t/o)}function b(t){const o=document.querySelector(".active");o==null||o.classList.remove("active"),document.querySelector(`[data-page="${t}"]`).classList.add("active")}function R(t,o,e){let i=[];for(let s=0;s<e;s++)i[s]=t.splice(0,o);return i}q(a,t=>{M(),l(t?a:a,n)});h();
 //# sourceMappingURL=commonHelpers.js.map
