@@ -5,7 +5,7 @@ import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { signOut } from 'firebase/auth';
 import { updateProfile } from 'firebase/auth';
 import { getFirestore } from 'firebase/firestore';
-import { collection, addDoc } from 'firebase/firestore';
+// import { collection, addDoc } from 'firebase/firestore';
 
 // Import the functions you need from the SDKs you need
 // TODO: Add SDKs for Firebase products that you want to use

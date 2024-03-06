@@ -6,7 +6,7 @@ import amazon from '../img/amazon-n.png';
 import apple from '../img/apple-n.png';
 import { updateBooksCounter } from './updatecounter';
 import { auth, db } from './firebase';
-import { collection, addDoc, setDoc, doc, getDocs } from 'firebase/firestore';
+import { collection, setDoc, doc, getDocs } from 'firebase/firestore';
 
 const backdrop = document.querySelector('.backdrop');
 const modalWrapper = document.querySelector('.modal-wrapper');
@@ -86,12 +86,12 @@ function markupBooks(modalData) {
 }
 
 async function manageButton(btnAddRemove, bookId) {
-  btnAddRemove.textContent = '';
   if (auth.currentUser) {
     let bookExist = false;
     const books = await getDocs(collection(db, auth.currentUser.uid)).then(
       books => {
         books.forEach(book => {
+          console.log(book);
           if (book.id === bookId) {
             bookExist = true;
           }
@@ -163,6 +163,9 @@ async function addBook(book) {
       description: book.description,
       amazon_buy_link: book.amazon_buy_link,
       apple_buy_link: book.apple_buy_link,
+    }).then(() => {
+      bookAddMsg.textContent =
+        'Сongratulations! You have added the book to the shopping list. To delete, press the button "Remove from the shopping list".';
     });
   } else {
     localStorageBooks.addBookToFavorites(book);
