@@ -100,7 +100,6 @@ async function manageButton(btnAddRemove, bookId) {
           bookExist = true;
         }
       });
-      console.log(bookExist);
       if (bookExist) {
         btnAddRemove.textContent = 'remove from favorite list';
       } else {
