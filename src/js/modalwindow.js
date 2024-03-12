@@ -69,7 +69,7 @@ export function showModal(id) {
 function markupBooks(modalData) {
   return `
       <img class="modal-img-book" src="${modalData.book_image}" alt="book" />
-        
+
       <div class="modal-book-container-right">
         <div class="modal-book-container">
           <div class="modal-book-info">
@@ -79,7 +79,7 @@ function markupBooks(modalData) {
           <p class="modal-book-description">${modalData.description}</p>
           <ul class="modal-icons-list">
           <li>
-            <a class="modal-book-link" href="${modalData.buy_links[0].url}" target="_blank"><img class='modal-link-icon-amazon' src="${amazon}" alt="" width='62' height='19' 
+            <a class="modal-book-link" href="${modalData.buy_links[0].url}" target="_blank"><img class='modal-link-icon-amazon' src="${amazon}" alt="" width='62' height='19'
             /></a>
           </li>
           <li>
