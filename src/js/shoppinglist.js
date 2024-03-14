@@ -7,12 +7,10 @@ import { updateBooksCounter } from './updatecounter';
 import { auth, db } from './firebase';
 import {
   collection,
-  setDoc,
   doc,
   getDocs,
   deleteDoc,
 } from 'firebase/firestore';
-import { getAuth } from 'firebase/auth';
 
 const shoppingList = document.querySelector('.cart-list');
 const cartEmptyMsg = document.querySelector('.cart-empty-container');
