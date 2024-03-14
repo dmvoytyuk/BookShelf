@@ -1,6 +1,6 @@
 import{f as u,a as P,b as U,c as g,d as v,l as _,u as S,s as m,r as h,h as l,g as T,i as C,e as w}from"./assets/updateonlogin-76bb9501.js";import{g as z,c as D,s as O,a as M,d as F,o as Y}from"./assets/vendor-76c4d237.js";const y=document.querySelector(".backdrop"),E=document.querySelector(".modal-wrapper"),q=document.querySelector("body"),a=document.querySelector(".modal-btn-addremove"),i=document.querySelector(".congrats"),L=document.querySelector(".modal-close"),s={_id:"",title:"",author:"",list_name:"",book_image:"",description:"",amazon_buy_link:"",apple_buy_link:""};async function G(e){try{E.innerHTML="",i.innerHTML="";const t=await u.getBookDescription(e);s._id=t._id,s.title=t.title,s.author=t.author,s.list_name=t.list_name,s.book_image=t.book_image,s.description=t.description,s.amazon_buy_link=t.buy_links[0].url,s.apple_buy_link=t.buy_links[1].url;const o=V(t);E.insertAdjacentHTML("beforeend",o),b(a,e),L.blur(),a.addEventListener("click",x),L.addEventListener("click",k),document.addEventListener("keydown",$),y.addEventListener("click",j)}catch(t){console.log("Error fetching modal:",t)}}function H(e){y.classList.add("modal-open"),q.classList.add("no-scroll"),G(e)}function V(e){return`
       <img class="modal-img-book" src="${e.book_image}" alt="book" />
-        
+
       <div class="modal-book-container-right">
         <div class="modal-book-container">
           <div class="modal-book-info">
@@ -10,7 +10,7 @@ import{f as u,a as P,b as U,c as g,d as v,l as _,u as S,s as m,r as h,h as l,g a
           <p class="modal-book-description">${e.description}</p>
           <ul class="modal-icons-list">
           <li>
-            <a class="modal-book-link" href="${e.buy_links[0].url}" target="_blank"><img class='modal-link-icon-amazon' src="${P}" alt="" width='62' height='19' 
+            <a class="modal-book-link" href="${e.buy_links[0].url}" target="_blank"><img class='modal-link-icon-amazon' src="${P}" alt="" width='62' height='19'
             /></a>
           </li>
           <li>
